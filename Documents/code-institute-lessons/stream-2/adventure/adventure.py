@@ -8,6 +8,7 @@ directions = {
 }
 
 position = (0, 0)
+new_position = {}
 
 while True:
     location = locations[position]
@@ -23,4 +24,10 @@ while True:
             valid_directions[k] = possible_position
 
     direction = raw_input('which direction do you want to go? \n')
-    position = valid_directions[direction]
+
+    new_position = valid_directions.get(direction)
+    if new_position:
+        position = new_position
+    else:
+        print "Sorry, you are lost!"
+
